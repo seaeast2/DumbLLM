@@ -12,7 +12,7 @@ class SimpleTokenizerV1:
 
     # 입력 텍스트를 처리하여 토큰 ID로 바꾼다.
     def encode(self, text):
-        preprocessed = re.split(r'([,.?_!"()\']|--|\s)', text)
+        preprocessed = re.split(r'([,.:;?_!"()\']|--|\s)', text)
         preprocessed = [
             item.strip() for item in preprocessed if item.strip()
         ]
@@ -23,5 +23,5 @@ class SimpleTokenizerV1:
     def decode(self, ids):
         text = " ".join([self.int_to_str[i] for i in ids])
         # 공백과 구두점 사이의 공백을 제거
-        text = re.sub(r'\s+([,.?!"()\'])', r'\1', text)
+        text = re.sub(r'\s+([,.:;?!"()\'])', r'\1', text)
         return text
