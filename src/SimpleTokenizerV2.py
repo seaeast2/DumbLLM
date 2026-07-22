@@ -25,3 +25,5 @@ class SimpleTokenizerV2:
         # 공백과 구두점 사이의 공백을 제거
         text = re.sub(r'\s+([,.:;?!"()\'])', r'\1', text)
         return text
+
+    
